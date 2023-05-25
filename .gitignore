@@ -1,0 +1,64 @@
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+.idea
+.idea/*
+.vs
+.vs/*
+.git/
+.git/*
+
+GCity.RestAPI.FSharp/bin
+GCity.RestAPI.FSharp/bin/*
+GCity.RestAPI.FSharp/obj
+GCity.RestAPI.FSharp/obj/*
+
+RestAPI/bin
+RestAPI/bin/*
+RestAPI/obj
+RestAPI/obj/*
+
+Core/bin
+Core/bin/*
+Core/obj
+Core/obj/*
+
+Database/bin
+Database/bin/*
+Database/obj
+Database/obj/*
+
+RestMVC/bin
+RestMVC/bin/*
+RestMVC/obj
+RestMVC/obj/*
