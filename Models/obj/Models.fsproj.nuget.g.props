@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<Project ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <RestoreSuccess Condition=" '$(RestoreSuccess)' == '' ">True</RestoreSuccess>
+    <RestoreTool Condition=" '$(RestoreTool)' == '' ">NuGet</RestoreTool>
+    <ProjectAssetsFile Condition=" '$(ProjectAssetsFile)' == '' ">$(MSBuildThisFileDirectory)project.assets.json</ProjectAssetsFile>
+    <NuGetPackageRoot Condition=" '$(NuGetPackageRoot)' == '' ">$(UserProfile)\.nuget\packages\</NuGetPackageRoot>
+    <NuGetPackageFolders Condition=" '$(NuGetPackageFolders)' == '' ">C:\Users\tangz\.nuget\packages\;C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages</NuGetPackageFolders>
+    <NuGetProjectStyle Condition=" '$(NuGetProjectStyle)' == '' ">PackageReference</NuGetProjectStyle>
+    <NuGetToolVersion Condition=" '$(NuGetToolVersion)' == '' ">6.5.0</NuGetToolVersion>
+  </PropertyGroup>
+  <ItemGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <SourceRoot Include="C:\Users\tangz\.nuget\packages\" />
+    <SourceRoot Include="C:\Program Files (x86)\Microsoft Visual Studio\Shared\NuGetPackages\" />
+  </ItemGroup>
+  <ImportGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.5\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore\7.0.5\buildTransitive\net6.0\Microsoft.EntityFrameworkCore.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props" Condition="Exists('$(NuGetPackageRoot)microsoft.extensions.configuration.usersecrets\7.0.0\buildTransitive\net6.0\Microsoft.Extensions.Configuration.UserSecrets.props')" />
+    <Import Project="$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.5\build\net6.0\Microsoft.EntityFrameworkCore.Design.props" Condition="Exists('$(NuGetPackageRoot)microsoft.entityframeworkcore.design\7.0.5\build\net6.0\Microsoft.EntityFrameworkCore.Design.props')" />
+  </ImportGroup>
+  <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
+    <PkgMicrosoft_EntityFrameworkCore Condition=" '$(PkgMicrosoft_EntityFrameworkCore)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.entityframeworkcore\7.0.5</PkgMicrosoft_EntityFrameworkCore>
+    <PkgPomelo_EntityFrameworkCore_MySql Condition=" '$(PkgPomelo_EntityFrameworkCore_MySql)' == '' ">C:\Users\tangz\.nuget\packages\pomelo.entityframeworkcore.mysql\7.0.0</PkgPomelo_EntityFrameworkCore_MySql>
+    <PkgMicrosoft_Extensions_Hosting Condition=" '$(PkgMicrosoft_Extensions_Hosting)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.extensions.hosting\7.0.1</PkgMicrosoft_Extensions_Hosting>
+    <PkgMicrosoft_EntityFrameworkCore_Design Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Design)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.entityframeworkcore.design\7.0.5</PkgMicrosoft_EntityFrameworkCore_Design>
+    <PkgMicrosoft_EntityFrameworkCore_Tools Condition=" '$(PkgMicrosoft_EntityFrameworkCore_Tools)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.entityframeworkcore.tools\7.0.5</PkgMicrosoft_EntityFrameworkCore_Tools>
+    <PkgMicrosoft_EntityFrameworkCore_SqlServer Condition=" '$(PkgMicrosoft_EntityFrameworkCore_SqlServer)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.entityframeworkcore.sqlserver\7.0.5</PkgMicrosoft_EntityFrameworkCore_SqlServer>
+    <PkgMicrosoft_AspNetCore_Identity_EntityFrameworkCore Condition=" '$(PkgMicrosoft_AspNetCore_Identity_EntityFrameworkCore)' == '' ">C:\Users\tangz\.nuget\packages\microsoft.aspnetcore.identity.entityframeworkcore\7.0.5</PkgMicrosoft_AspNetCore_Identity_EntityFrameworkCore>
+    <PkgFSharp_Core Condition=" '$(PkgFSharp_Core)' == '' ">C:\Users\tangz\.nuget\packages\fsharp.core\7.0.200</PkgFSharp_Core>
+  </PropertyGroup>
+</Project>

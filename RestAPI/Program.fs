@@ -95,7 +95,7 @@ module Program =
         builder.Services.AddHttpContextAccessor()
 
         // Add MVC
-        builder.Services.AddMvc()
+        //builder.Services.AddMvc()
         let app = builder.Build()
 
         app.UseHttpsRedirection()

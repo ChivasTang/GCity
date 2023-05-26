@@ -62,3 +62,8 @@ RestMVC/bin
 RestMVC/bin/*
 RestMVC/obj
 RestMVC/obj/*
+
+Models/bin
+Models/bin/*
+Models/obj
+Models/obj/*

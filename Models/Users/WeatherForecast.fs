@@ -1,4 +1,4 @@
-namespace RestAPI.Models
+namespace Models.Users
 
 open System
 

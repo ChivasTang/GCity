@@ -6,8 +6,8 @@ open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.AspNetCore.Mvc
 open Microsoft.Extensions.Logging
 open Microsoft.AspNetCore.Authorization
-open Database.Models
-
+open Models.Users
+open RestAPI.Domains
 
 [<ApiController; Route "[controller]">]
 type WeatherForecastController(logger: ILogger<WeatherForecastController>) =
@@ -32,16 +32,11 @@ type WeatherForecastController(logger: ILogger<WeatherForecastController>) =
         let weathers = List<WeatherForecast>()
 
         for index in 0..4 do
-            let weather =
-                WeatherForecast(
-                    DateTime.Now.AddDays(float index),
-                    rng.Next(-20, 55),
-                    summaries[rng.Next(summaries.Length)]
-                )
-            //let weather =
-            //    { Date = DateTime.Now.AddDays(float index)
-            //      TemperatureC = rng.Next(-20, 55)
-            //      Summary = summaries[rng.Next(summaries.Length)] }
-            weathers.Add weather
+            let weather: WeatherForecast =
+                { Date = DateTime.Now.AddDays(float index)
+                  TemperatureC = rng.Next(-20, 55)
+                  Summary = summaries[rng.Next(summaries.Length)] }
 
-        ActionResult<List<WeatherForecast>>(weathers)
+            weathers.Add(weather)
+
+        ApiResult.SUCCESS(weathers)
