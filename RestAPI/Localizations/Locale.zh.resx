@@ -104,6 +104,6 @@
         </value>
     </resheader>
     <data name="GreetingMessage" xml:space="preserve">
-        <value>你好，世界！</value>
-    </data>
+    <value>你好，世界！(zh)</value>
+  </data>
 </root>

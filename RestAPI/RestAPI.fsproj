@@ -7,50 +7,51 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <Compile Include="Utils/*Util.fs" />
-        <Compile Include="Models/*.fs" />
-        <Compile Include="Domains/ApiError.fs" />
-        <Compile Include="Domains/ApiResult.fs" />
-        <Compile Include="Domains/Req/*Req.fs" />
-        <Compile Include="Domains/Res/*Res.fs" />
-        <Compile Include="Repositories/Interface/I*Repository.fs" />
-        <Compile Include="Repositories/*Repository.fs" />
-        <Compile Include="Services/Interface/I*Service.fs" />
-        <Compile Include="Services/*Service.fs" />
-        <Compile Include="Controllers/*Controller.fs" />
-        <Compile Include="Handlers/*Handler.fs" />
-        <Compile Include="Filters/*Filter.fs" />
-        <Compile Include="Program.fs" />
+        <Compile Include="Localizations/Locale.fs"/>
+        <Compile Include="Utils/*Util.fs"/>
+        <Compile Include="Models/*.fs"/>
+        <Compile Include="Domains/ApiError.fs"/>
+        <Compile Include="Domains/ApiResult.fs"/>
+        <Compile Include="Domains/Req/*Req.fs"/>
+        <Compile Include="Domains/Res/*Res.fs"/>
+        <Compile Include="Repositories/Interface/I*Repository.fs"/>
+        <Compile Include="Repositories/*Repository.fs"/>
+        <Compile Include="Services/Interface/I*Service.fs"/>
+        <Compile Include="Services/*Service.fs"/>
+        <Compile Include="Controllers/*Controller.fs"/>
+        <Compile Include="Handlers/*Handler.fs"/>
+        <Compile Include="Filters/*Filter.fs"/>
+        <Compile Include="Program.fs"/>
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="Dockerfile" />
+        <None Include="Dockerfile"/>
     </ItemGroup>
 
     <ItemGroup>
-        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5" />
-        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5" />
-        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5" />
+        <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5"/>
+        <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5"/>
+        <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="7.0.5">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5" />
+        <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="7.0.5"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="7.0.5">
             <PrivateAssets>all</PrivateAssets>
             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
         </PackageReference>
-        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1" />
-        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0" />
+        <PackageReference Include="Microsoft.Extensions.Hosting" Version="7.0.1"/>
+        <PackageReference Include="Pomelo.EntityFrameworkCore.MySql" Version="7.0.0"/>
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="../Database/Database.csproj" />
+        <ProjectReference Include="../Database/Database.csproj"/>
     </ItemGroup>
 
     <ItemGroup>
-      <EmbeddedResource Update="Resources\ResourceMessages.resx">
-        <Generator>ResXFileCodeGenerator</Generator>
-      </EmbeddedResource>
+        <EmbeddedResource Update="Localizations/Locale.resx">
+            <Generator>ResXFileCodeGenerator</Generator>
+        </EmbeddedResource>
     </ItemGroup>
 </Project>

@@ -13,7 +13,7 @@ open RestAPI.Services
 open RestAPI.Domains
 
 
-[<ApiController;Route "[controller]">]
+[<ApiController; Route "[controller]">]
 type AuthController
     (
         logger: ILogger<AuthController>,

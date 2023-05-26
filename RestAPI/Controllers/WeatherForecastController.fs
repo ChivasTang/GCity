@@ -9,7 +9,7 @@ open Microsoft.AspNetCore.Authorization
 open Database.Models
 
 
-[<ApiController;Route "[controller]">]
+[<ApiController; Route "[controller]">]
 type WeatherForecastController(logger: ILogger<WeatherForecastController>) =
     inherit ControllerBase()
 

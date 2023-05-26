@@ -1,5 +1,6 @@
 namespace RestAPI
 
+open System.Globalization
 open Database
 open Microsoft.EntityFrameworkCore
 open Pomelo.EntityFrameworkCore.MySql.Infrastructure
@@ -9,6 +10,7 @@ open System.Text
 open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.IdentityModel.Tokens
 open RestAPI.Services
+open RestAPI.Localizations
 
 #nowarn "20"
 
@@ -24,12 +26,31 @@ module Program =
     [<EntryPoint>]
     let main args =
         // Settings
-        let configurationBuilder = ConfigurationBuilder().AddJsonFile("appsettings.json", false, true).AddEnvironmentVariables().Build()
+        let configurationBuilder =
+            ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", false, true)
+                .AddEnvironmentVariables()
+                .Build()
 
         let builder = WebApplication.CreateBuilder(args)
 
         // Add Localization
-        builder.Services.AddLocalization(fun options -> options.ResourcesPath <- "Resources")
+        let localizationOptions = RequestLocalizationOptions()
+
+        let supportedLocales =
+            //[| "en"; "ja"; "ja-jp"; "zh"; "zh-hans" |]
+            [| CultureInfo("en")
+               CultureInfo("ja")
+               CultureInfo("ja-jp")
+               CultureInfo("zh")
+               CultureInfo("zh-hans") |]
+
+        localizationOptions.SupportedCultures <- supportedLocales
+        localizationOptions.SupportedUICultures <- supportedLocales
+        localizationOptions.SetDefaultCulture "en"
+        localizationOptions.ApplyCurrentCultureToResponseHeaders <- true
+        //builder.Services.AddLocalization(fun options -> options.ResourcesPath <- "Resources:MessageService")
+        builder.Services.AddLocalization()
 
         // Add DataSource
         //let msConnectionString = configurationBuilder.GetConnectionString "MSSQLSERVER"
@@ -64,15 +85,19 @@ module Program =
                         ValidateLifetime = true,
                         IssuerSigningKey = SymmetricSecurityKey(secretKeyBytes)
                     ))
+
         // Add Service
         builder.Services.AddTransient<IJwtTokenService, JwtTokenService>()
+        builder.Services.AddTransient<Locale>()
 
         // Add Controller
         builder.Services.AddControllers(fun options -> options.Filters.Add(JwtTokenFilter()))
         builder.Services.AddHttpContextAccessor()
 
+        // Add MVC
+        builder.Services.AddMvc()
         let app = builder.Build()
-        
+
         app.UseHttpsRedirection()
         app.UseRouting()
         app.UseAuthentication()
@@ -81,14 +106,9 @@ module Program =
         app.UseAuthorization()
         app.MapControllers()
 
-        let supportedLocales = [|"en";"ja";"ja-jp";"zh";"zh-hans";|]
-        let localizationOptions = RequestLocalizationOptions()
-        localizationOptions.AddSupportedCultures supportedLocales
-        localizationOptions.AddSupportedUICultures supportedLocales
-        localizationOptions.ApplyCurrentCultureToResponseHeaders <- true
+        // use localization
+        app.UseRequestLocalization localizationOptions
 
-        app.UseRequestLocalization(localizationOptions)
-        
 
         app.Run()
 
