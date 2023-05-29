@@ -1,5 +1,14 @@
 ﻿namespace Models.Users
 
 open System
+open System.ComponentModel.DataAnnotations
+open System.ComponentModel.DataAnnotations.Schema
 
-type UserProfile = { Id: Guid; Locale: string }
+[<CLIMutable;Table("UserProfile")>]
+type UserProfile =
+    {
+        [<Column("Id");Key;>]
+        Id: Guid
+        [<Column("Locale");>]
+        Locale: string
+    }

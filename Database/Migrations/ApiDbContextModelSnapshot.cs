@@ -211,6 +211,48 @@ namespace Database.Migrations
                     b.ToTable("UserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("Models.Users.ReqLog", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("Id");
+
+                    b.Property<DateTime>("CreateTime")
+                        .HasColumnType("datetime(6)")
+                        .HasColumnName("CreateTime");
+
+                    b.Property<string>("Url")
+                        .IsRequired()
+                        .HasMaxLength(256)
+                        .HasColumnType("varchar(256)")
+                        .HasColumnName("Url");
+
+                    b.Property<Guid>("UserId")
+                        .HasColumnType("char(36)")
+                        .HasColumnName("UserId");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ReqLog", (string)null);
+                });
+
+            modelBuilder.Entity("Models.Users.UserProfile", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("char(36)")
+                        .HasColumnName("Id");
+
+                    b.Property<string>("Locale")
+                        .HasColumnType("longtext")
+                        .HasColumnName("Locale");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("UserProfile", (string)null);
+                });
+
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
                 {
                     b.HasOne("Microsoft.AspNetCore.Identity.IdentityRole", null)

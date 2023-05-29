@@ -1,15 +1,21 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using Models.Users;
 
 namespace Database;
 
 public class ApiDbContext : IdentityDbContext<IdentityUser>
 {
-    public ApiDbContext(DbContextOptions<ApiDbContext> options) : base(options)
+
+    public DbSet<UserProfile> UserProfiles;
+    public DbSet<ReqLog> ReqLogs;
+    public ApiDbContext(DbContextOptions<ApiDbContext> options, DbSet<UserProfile> userProfiles, DbSet<ReqLog> reqLogs) : base(options)
     {
-        //migrations add --project Database/Database.csproj --startup-project RestAPI/RestAPI.fsproj --context Database.ApiDbContext --configuration Debug InitialDB --output-dir Migrations
-        //database update --project Database/Database.csproj --startup-project RestAPI/RestAPI.fsproj --context Database.ApiDbContext --configuration Debug 20230521004128_InitialDB
+        UserProfiles = userProfiles;
+        ReqLogs = reqLogs;
+        // ¥/usr/local/share/dotnet/dotnet ef migrations add --project Database/Database.csproj --startup-project RestAPI/RestAPI.fsproj --context Database.ApiDbContext --configuration Debug initialDBWithUserProfile --output-dir Migrations
+        // ¥/usr/local/share/dotnet/dotnet ef database update --project Database/Database.csproj --startup-project RestAPI/RestAPI.fsproj --context Database.ApiDbContext --configuration Debug 20230529140916_InitialDBWithUserProfile
     }
 
     protected override void OnModelCreating(ModelBuilder builder)

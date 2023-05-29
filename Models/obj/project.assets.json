@@ -4773,32 +4773,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\tangz\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "/Users/tsk/.nuget/packages/": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\workspace\\GCity\\Models\\Models.fsproj",
+      "projectUniqueName": "/Users/tsk/Desktop/workspace/GCity/Models/Models.fsproj",
       "projectName": "Models",
-      "projectPath": "D:\\workspace\\GCity\\Models\\Models.fsproj",
-      "packagesPath": "C:\\Users\\tangz\\.nuget\\packages\\",
-      "outputPath": "D:\\workspace\\GCity\\Models\\obj\\",
+      "projectPath": "/Users/tsk/Desktop/workspace/GCity/Models/Models.fsproj",
+      "packagesPath": "/Users/tsk/.nuget/packages/",
+      "outputPath": "/Users/tsk/Desktop/workspace/GCity/Models/obj/",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\tangz\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        "/Users/tsk/.nuget/NuGet/NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net7.0"
       ],
       "sources": {
-        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
-        "C:\\Users\\tangz\\.dotnet\\sdk\\7.0.203\\FSharp\\library-packs": {},
+        "/usr/local/share/dotnet/library-packs": {},
+        "/usr/local/share/dotnet/sdk/7.0.203/FSharp/library-packs": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
@@ -4874,7 +4868,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\tangz\\.dotnet\\sdk\\7.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/7.0.203/RuntimeIdentifierGraph.json"
       }
     }
   }
