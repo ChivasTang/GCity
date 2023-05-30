@@ -9,6 +9,7 @@ open Microsoft.AspNetCore.Identity
 open System.Text
 open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.IdentityModel.Tokens
+open RestAPI.Repositories
 open RestAPI.Services
 open RestAPI.Localizations
 
@@ -38,7 +39,6 @@ module Program =
         let localizationOptions = RequestLocalizationOptions()
 
         let supportedLocales =
-            //[| "en"; "ja"; "ja-jp"; "zh"; "zh-hans" |]
             [| CultureInfo("en")
                CultureInfo("ja")
                CultureInfo("ja-jp")
@@ -85,13 +85,17 @@ module Program =
                         ValidateLifetime = true,
                         IssuerSigningKey = SymmetricSecurityKey(secretKeyBytes)
                     ))
+        // Add Repository
+        builder.Services.AddTransient<IReqLogRepository, ReqLogRepository>()
 
         // Add Service
         builder.Services.AddTransient<IJwtTokenService, JwtTokenService>()
+        builder.Services.AddTransient<IReqLogService, ReqLogService>()
         builder.Services.AddTransient<Locale>()
+        builder.Services.AddTransient<JwtTokenFilter>()
 
         // Add Controller
-        builder.Services.AddControllers(fun options -> options.Filters.Add(JwtTokenFilter()))
+        builder.Services.AddControllers(fun options -> options.Filters.Add<JwtTokenFilter>() |> ignore)
         builder.Services.AddHttpContextAccessor()
 
         // Add MVC
@@ -105,6 +109,7 @@ module Program =
 
         app.UseAuthorization()
         app.MapControllers()
+        //app.UseMiddleware<JwtTokenFilter>()
 
         // use localization
         app.UseRequestLocalization localizationOptions

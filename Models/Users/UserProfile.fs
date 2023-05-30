@@ -4,11 +4,9 @@ open System
 open System.ComponentModel.DataAnnotations
 open System.ComponentModel.DataAnnotations.Schema
 
-[<CLIMutable;Table("UserProfile")>]
+[<CLIMutable; Table("UserProfile")>]
 type UserProfile =
-    {
-        [<Column("Id");Key;>]
-        Id: Guid
-        [<Column("Locale");>]
-        Locale: string
-    }
+    { [<Column("Id"); Key>]
+      Id: Guid
+      [<Column("Locale")>]
+      Locale: string }
