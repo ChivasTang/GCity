@@ -4,6 +4,7 @@ open Microsoft.AspNetCore.Http
 open Microsoft.Net.Http.Headers
 
 type ReqUtil =
+    static member InTimeHeader = "InTime"
 
     static member NonAuthorizedUrls: Set<string> =
         Set.empty

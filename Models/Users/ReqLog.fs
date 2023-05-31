@@ -12,5 +12,7 @@ type ReqLog =
       Url: string
       [<Column("UserId")>]
       UserId: string
-      [<Column("CreateTime")>]
-      CreateTime: DateTime }
+      [<Column("InTime")>]
+      InTime: int64
+      [<Column("OutTime")>]
+      OutTime: int64 }

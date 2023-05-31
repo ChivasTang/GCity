@@ -24,10 +24,6 @@
     </ItemGroup>
 
     <ItemGroup>
-        <None Include="Dockerfile"/>
-    </ItemGroup>
-
-    <ItemGroup>
         <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="7.0.5"/>
         <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="7.0.5"/>
         <PackageReference Include="Microsoft.EntityFrameworkCore" Version="7.0.5"/>
@@ -52,5 +48,12 @@
         <EmbeddedResource Update="Localizations/Locale.resx">
             <Generator>ResXFileCodeGenerator</Generator>
         </EmbeddedResource>
+    </ItemGroup>
+
+    <ItemGroup>
+        <Content Include="..\.dockerignore">
+            <Link>.dockerignore</Link>
+        </Content>
+        <Content Include="Dockerfile"/>
     </ItemGroup>
 </Project>
