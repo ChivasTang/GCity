@@ -9,7 +9,6 @@ open Microsoft.AspNetCore.Identity
 open System.Text
 open Microsoft.AspNetCore.Authentication.JwtBearer
 open Microsoft.IdentityModel.Tokens
-open RestAPI.Repositories
 open RestAPI.Services
 open RestAPI.Localizations
 
@@ -86,7 +85,6 @@ module Program =
                         IssuerSigningKey = SymmetricSecurityKey(secretKeyBytes)
                     ))
         // Add Repository
-        builder.Services.AddTransient<IReqLogRepository, ReqLogRepository>()
 
         // Add Service
         builder.Services.AddTransient<IJwtTokenService, JwtTokenService>()

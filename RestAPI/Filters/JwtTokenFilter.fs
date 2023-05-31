@@ -26,21 +26,28 @@ type JwtTokenFilter(_reqLogService: IReqLogService) =
         if containsBearHeader then
             let tokenString = ReqUtil.GetJwtToken(context.HttpContext).Trim()
             let securityToken = JwtSecurityTokenHandler().ReadJwtToken tokenString
+            let outTime = DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds()
+            let consuming = outTime - inTime
 
-            _reqLogService.SaveOne
+            _reqLogService.SaveOneAsync
                 { Id = id
                   Url = pathUrl
                   UserId = securityToken.Subject
                   InTime = inTime
-                  OutTime = DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds() }
+                  OutTime = outTime
+                  Consuming = consuming }
 
-        else if ReqUtil.IsNonAuthorizedUrl(context.HttpContext) then
-            _reqLogService.SaveOne
+        else
+            let outTime = DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds()
+            let consuming = outTime - inTime
+
+            _reqLogService.SaveOneAsync
                 { Id = id
                   Url = pathUrl
                   UserId = null
                   InTime = inTime
-                  OutTime = DateTimeOffset(DateTime.Now).ToUnixTimeMilliseconds() }
+                  OutTime = outTime
+                  Consuming = consuming }
 
     interface IActionFilter with
         //经过身份认证之后 ，在进入请求路由前对context进行过滤

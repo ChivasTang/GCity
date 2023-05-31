@@ -15,4 +15,6 @@ type ReqLog =
       [<Column("InTime")>]
       InTime: int64
       [<Column("OutTime")>]
-      OutTime: int64 }
+      OutTime: int64
+      [<Column("Consuming")>]
+      Consuming: int64 }
