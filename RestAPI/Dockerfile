@@ -11,12 +11,12 @@ COPY ["Database/Database.csproj", "Database/"]
 COPY ["Models/Models.fsproj", "Models/"]
 RUN dotnet restore "RestAPI/RestAPI.fsproj"
 COPY . .
-WORKDIR "/src/RestAPI"
-RUN dotnet build "RestAPI.fsproj" -c Release -o /app/build
+WORKDIR "/src"
+RUN dotnet build -c Release -o /app/build
 
-WORKDIR "/src/RestAPI"
+WORKDIR "/src"
 FROM build AS publish
-RUN dotnet publish "RestAPI.fsproj" -c Release -o /app/publish /p:UseAppHost=false
+RUN dotnet publish -c Release -o /app/publish /p:UseAppHost=false
 
 FROM base AS final
 WORKDIR /app
