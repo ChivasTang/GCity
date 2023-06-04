@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Database.Migrations
 {
     [DbContext(typeof(ApiDbContext))]
-    [Migration("20230529140916_InitialDBWithUserProfile")]
-    partial class InitialDBWithUserProfile
+    [Migration("20230604134231_InitialDB")]
+    partial class InitialDB
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -221,9 +221,17 @@ namespace Database.Migrations
                         .HasColumnType("char(36)")
                         .HasColumnName("Id");
 
-                    b.Property<DateTime>("CreateTime")
-                        .HasColumnType("datetime(6)")
-                        .HasColumnName("CreateTime");
+                    b.Property<long>("Consuming")
+                        .HasColumnType("bigint")
+                        .HasColumnName("Consuming");
+
+                    b.Property<long>("InTime")
+                        .HasColumnType("bigint")
+                        .HasColumnName("InTime");
+
+                    b.Property<long>("OutTime")
+                        .HasColumnType("bigint")
+                        .HasColumnName("OutTime");
 
                     b.Property<string>("Url")
                         .IsRequired()
@@ -231,8 +239,8 @@ namespace Database.Migrations
                         .HasColumnType("varchar(256)")
                         .HasColumnName("Url");
 
-                    b.Property<Guid>("UserId")
-                        .HasColumnType("char(36)")
+                    b.Property<string>("UserId")
+                        .HasColumnType("longtext")
                         .HasColumnName("UserId");
 
                     b.HasKey("Id");
